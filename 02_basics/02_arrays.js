@@ -10,9 +10,11 @@ console.log(marvel_heros[3][0]);
 const all_Heros=marvel_heros.concat(dc_heros)
 console.log(all_Heros);
 
+//Spread(...) operator
 const Heros=[...marvel_heros,...dc_heros]
 console.log(Heros);
 
+//flat method opening array in array
 const array=[1, 2, 3, [4, 5, 6], 7, [8, [9, 10]]]
 const arrayflat=array.flat(Infinity)
 console.log(arrayflat);
