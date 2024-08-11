@@ -41,6 +41,8 @@ console.log(addtwo(4));
 
 //IMPLICIT RETURN 
 //paranthesis works same as return keyword in implicit arraw function
+
+//if you are creating a block scope that u have to use return keyword otherwise not 
 const addone = (num)=> (num + 1)
 console.log(addone(4));
 
