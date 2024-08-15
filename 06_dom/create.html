@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    //creating an element
+    const div = document.createElement("div")
+    console.log(div);
+
+    //changing its class name and id
+    div.className = "centre"
+    div.id = Math.floor(Math.random() * 10 + 1)
+
+    //setting various attributes
+    div.setAttribute("title","hello")
+    div.setAttribute("style","background-color : green;")
+    
+    //innerText takes the reference of the value and then set it acc to the command (2 iterations)
+    div.innerText = "Hello"
+    //OR
+    //By creating a Text Node and appending it as a child
+    const node = document.createTextNode(" World")
+    div.appendChild(node)
+    //for displaying child on the document
+    document.body.appendChild(div)
+    console.log(div.innerText);
+</script>
+</html>

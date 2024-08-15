@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Children</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+    <script>
+        //for selecting the element in the document
+        const parent = document.querySelector(".parent")
+        console.log(parent);
+
+        //accessing it's children innerHTML
+        console.log(parent.children[1].innerHTML);
+        
+        //applying loop
+        for (let i = 0; i < parent.children.length; i++) {
+            console.log(parent.children[i].innerHTML);
+        }
+
+        //setting text color of the 1st child
+        parent.children[0].style.color = "orange"
+        
+        //logging first and last child element
+        console.log(parent.firstElementChild);
+        console.log(parent.lastElementChild);
+
+        const dayOne = document.querySelector(".day")
+
+        //selecting parent element fro its child
+        console.log(dayOne);
+        console.log(dayOne.parentElement);
+
+        //selecting another element on the same level (sibling) of an element
+        console.log(dayOne.nextElementSibling);
+
+        //logging info of the childNodes of the parent
+        console.log(parent.childNodes);
+    </script>
+</body>
+</html>
