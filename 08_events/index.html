@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- Adding event listerner directly in the HTML element
+            vanila javascript scaling m dikkat karti h 
+            onclick = 'alert('owl')' -->
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //Does not create issues but give less features
+    
+    // document.getElementById('#owl').onclick = function{
+    //     alert('owl clicked')
+    // }
+
+    //jquery - on
+    //attachEvent - usedin early days when intrernet explorer was a thing
+    
+    //time, timstamp, defaultPrevented
+    //target, toElement, scrElement, currentTarget
+    //clientX, clientY, screenX, screentY
+    //altkey, crtlkey, shieftKey, keyCode
+
+    //NESTED EventListeners(event propogation)
+    //when there is a event listerner inside a eventlistener then the third value which is by default false is considered 
+    // document.getElementById('images').addEventListener('click',function (){
+    //     console.log('clicked inside the ul');
+    // },false)
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     //we can stop propogation by using
+    //     e.stopPropagation()
+    //     console.log('clicked owl');
+
+    // },false)
+    
+    //This third value decides if the events are bubbling aur capturing
+    //if its false then bubbling works which means the inner bubble(owl) is executed first and then it goes to outside and executes them(images)
+    //But if the third value is true then it performs capturing and the execution goes from outer(images) to inner(owl)
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log('clicked on the url');
+    // },false)
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        //Adhoc approach that just clicked my mind
+
+        // switch (e.target.id) {
+        //     case 'photoshop':
+        //         document.querySelector('#photoshop').parentNode.remove()            
+        //         break;
+        //     case 'japan':
+        //         document.querySelector('#japan').parentNode.remove()
+        //         break;
+        //     case 'river':
+        //         document.querySelector('#river').parentNode.remove()
+        //         break
+        //     case 'owl':
+        //         document.querySelector('#owl').parentNode.remove()
+        //         break
+        //     case 'prayer':
+        //         document.querySelector('#prayer').parentNode.remove()
+        //         break
+        //     default:
+        //         break;
+        // }
+
+        //sir's approach
+        
+        /*e is the iamges node and we are using target to get specific element 
+        on which the event is occured and access its parent node (li) and removing th li */
+        if(e.target.tagName === 'IMG'){
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+        console.log(e.target.tagName);
+        
+        //OR
+        //storing li and accessing its parent (images) and removing parent's child by using removeChild by passing li into it 
+        // removeIt.parentNode.removeChild(removeIt)
+
+    },false)
+</script>
