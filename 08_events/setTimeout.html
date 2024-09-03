@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button class="stop">Stop</button>
+</body>
+<script>
+    //setTimeout
+    //setTimeout make the js to behave like asyncronus. It excutes the task only once after a given time
+
+    //In parameter we have to pass a function reference or function defination and time in milisecond
+
+    const hello  = function(){
+        document.querySelector('h1').innerHTML = 'HELLO WORLD'
+        console.log('WORKING');
+    }
+    const changeName = setTimeout(hello,4000)
+    
+    //we can use clearTimeout to cancel setTimeout by giving its reference
+    document.querySelector('.stop').addEventListener('click',function(){
+        clearTimeout(changeName)
+        console.log('STOPPED');
+    })
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Javascript</h1>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+</body>
+<script>
+    //setInterval
+    //setInterval make the js to behave like asyncronus. It excutes the task after every time infinitly (until we stop it) 
+    
+    //In parameter we have to pass a function reference or function defination, time in milisecond and can pass a anything that can be used in the referenced function
+
+    let interval 
+    function hello (N) {
+            console.log(`hello ${N}`);
+        }
+    document.querySelector('.start').addEventListener('click',function(){
+        interval = setInterval(hello,1000,"Name")
+    })
+
+    //we can use clearInterval to cancel setInteval by giving its reference
+    document.querySelector('.stop').addEventListener('click',function(){
+        clearInterval(interval)
+    })
+</script>
+</html>
