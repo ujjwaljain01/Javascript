@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="green">green</button>
+    <button id="orange">orange</button>
+    <script>
+    // in lexical scoping the inner function can access the outer function's variable and function 
+    // outer fn cannot access inner fn and two inner fn cannot access each other's variables
+    //     function outer(){
+    //     let name = `hello`
+    //     console.log(secret);//cannot access
+    //     function inner(){
+    //         let secret = `my123`
+    //         console.log(name);
+    //     }
+    //     inner()
+    //     function inner2(){
+    //         console.log(secret); //cannot access
+    //         console.log(name);
+    //     }
+    //     inner2()
+    // }
+    // outer()
+
+    //closure - In this, we return inner fn in outer fn and by returning the inner fn we are also returning its lexical scope
+        function outer2(){
+            let name = 'hello'
+            function inner(){
+                console.log(name);
+            }
+            return inner
+        }
+        outer2()()
+        //or 
+        const func = outer2()
+        //refrence is stored in func variable and we calls the refernce
+        func()
+        // because it returns a fn reference so we have to make it fn call
+        
+        //for changing bgcolor as button clicked 
+        // document.getElementById("orange").onclick = function(){
+        //     document.querySelector("body").style.backgroundColor = "orange"
+        // }
+
+        // document.getElementById("green").onclick = function(){
+        //     document.querySelector("body").style.backgroundColor = "green"
+        // }
+
+        //generic form 
+        //use case example
+        function clickhandler(color){
+            return function(){
+                document.querySelector("body").style.backgroundColor = `${color}`
+
+            }
+        }
+        //onclick will work as a function calling 
+        document.getElementById("green").onclick = clickhandler('green')
+
+        document.querySelector("#orange").onclick = clickhandler('orange')
+
+    </script>
+</body>
+</html>
